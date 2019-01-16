@@ -20,6 +20,7 @@
 </head>
 <body>
 
+<?php include('morceau/nav.php'); ?>
 
   <header class="block__header">
     <h2 class="actu title">Actu Tendance</h2>
@@ -103,11 +104,11 @@
   </div>
   <article class="article__aside">
     <h3 class="article__preshow__title">Lorem Ipsum Dolor Sit Amet</h3>
-    <p class="article__preshow__description__aside">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nunc vel leo feugiat condimentum. Morbi id nulla non purus ultrices hendrerit sed nec lacus. Phasellus vitae vehicula ipsum, nec eleifend nisl.</p>
+    <p class="article__preshow__description__aside">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
   </article>
   <article class="article__aside">
     <h3 class="article__preshow__title">Lorem Ipsum Dolor Sit Amet</h3>
-    <p class="article__preshow__description__aside">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nunc vel leo feugiat condimentum. Morbi id nulla non purus ultrices hendrerit sed nec lacus. Phasellus vitae vehicula ipsum, nec eleifend nisl.</p>
+    <p class="article__preshow__description__aside">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
   </article>
 </aside>
 
