@@ -31,7 +31,7 @@ var text = str.substr(0, 350);
 }
 
 $(window).scroll(function(){
-  if ($(window).scrollTop()+100 > $(window).height()) {
+  if ($(window).scrollTop()+200 > $(window).height()) {
     $('.wrapper2').fadeIn(1500);
   }
 })

@@ -14,13 +14,13 @@ include('morceau/bdd.php');
       <?php include('morceau/nav.php'); ?>
 
       <header class="header__sport">
-        <img src="/urbanride/img/SKATE_benniere.png" alt="">
+        <img src="/urbanride/img/BMX_benniere.png" alt="">
       </header>
       <main class="sport__main">
-        <h2>ACTU</h2>
+          <h2>ACTU</h2>
         <section class="article__wrapper">
           <?php
-          $sport = 'skate';
+          $sport = 'bmx';
            $req = $bdd->prepare('SELECT * FROM article WHERE sport = ? ORDER BY id DESC LIMIT 3');
           $req->execute(array($sport));
           while ($article = $req->fetch()) {
@@ -28,7 +28,7 @@ include('morceau/bdd.php');
             ?>
             <a href="<?php switch ($article['type']) {
               case 'article':
-                echo '/urbanride/article-skate/'.$article['url']."-".$article['id'];
+                echo '/urbanride/article-bmx/'.$article['url']."-".$article['id'];
                 break;
               case 'marque':
               echo 'article_marque.php?marque='.$article['id'];
@@ -41,7 +41,7 @@ include('morceau/bdd.php');
                 break;
             } ?>">
               <article class="article__block">
-                <img src="/urbanride/uploads/<?php echo $article['miniature']; ?>" alt="" class="article__preshow__img">
+                <img src="/urbanride/uploads/<?php echo $article['media']; ?>" alt="" class="article__preshow__img">
                 <div class="block__info">
                   <h3 class="article__preshow__title"><?php echo $article['titre']; ?></h3>
 
@@ -59,7 +59,7 @@ include('morceau/bdd.php');
       </section>
       </main>
 
-      <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script type="text/javascript" src="js/script.js"></script>
+      <script type="text/javascript" src="/urbanride/js/jquery.min.js"></script>
+      <script type="text/javascript" src="/urbanride/js/script.js"></script>
   </body>
 </html>

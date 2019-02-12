@@ -21,7 +21,7 @@ include('morceau/bdd.php');
   <?php include('morceau/nav.php'); ?>
 
   <header class="block__header">
-    <h2 class="actu title">Actu Tendance</h2>
+    <h2 class="actu title">Actus Tendance</h2>
     <div class="header__accueil">
       <figure class="main__info">
         <a href="#">
@@ -34,7 +34,7 @@ include('morceau/bdd.php');
           while ($article = $req->fetch()) {
             ?>
             <figure class="sub__info__block">
-              <a href="#"> <img src="img/<?php echo $article['miniature']; ?>.png" alt=""> </a>
+              <a href="<?php echo '/urbanride/article-'.$article['sport'].'/'.$article['url']."-".$article['id']; ?>"> <img src="uploads/<?php echo $article['miniature']; ?>" alt=""> </a>
               <figcaption class="spoiler__header"><?php echo $article['titre']; ?></figcaption>
 
             </figure>
@@ -49,21 +49,21 @@ include('morceau/bdd.php');
     </header>
 
 
-    <h2 class="actu__news title">Actu Récente</h3>
+    <h2 class="actu__news title">Actus Récentes</h3>
 
       <main class="block__main">
         <div class="">
 
 
           <section class="article__wrapper">
-            <?php $req = $bdd->query('SELECT * FROM article ORDER BY id DESC LIMIT 3');
+            <?php $req = $bdd->query('SELECT * FROM article ORDER BY id DESC ');
 
             while ($article = $req->fetch()) {
 
               ?>
               <a href="<?php switch ($article['type']) {
                 case 'article':
-                  echo 'article_'.$article['sport'].'.php?id='.$article['id'];
+                  echo '/urbanride/article-'.$article['sport'].'/'.$article['url']."-".$article['id'];
                   break;
                 case 'video':
                 echo 'article_'.$article['sport'].'.php?id='.$article['id'];
@@ -75,11 +75,11 @@ include('morceau/bdd.php');
                 echo 'article_pro.php?pro='.$article['id'];
                 break;
                 default:
-                  // code...
+
                   break;
               } ?>">
                 <article class="article__block">
-                  <img src="img/<?php echo $article['media']; ?>.png" alt="" class="article__preshow__img">
+                  <img src="uploads/<?php echo $article['miniature']; ?>" alt="" class="article__preshow__img">
                   <div class="block__info">
                     <h3 class="article__preshow__title"><?php echo $article['titre']; ?></h3>
 
@@ -95,45 +95,7 @@ include('morceau/bdd.php');
           } ?>
 
         </section>
-        <section class="article__wrapper wrapper2" style="display:none;">
-          <?php $req = $bdd->query('SELECT * FROM article WHERE id > 3 ORDER BY id DESC LIMIT 3');
 
-          while ($article = $req->fetch()) {
-
-            ?>
-            <a href="<?php switch ($article['type']) {
-              case 'article':
-                echo 'article_'.$article['sport'].'.php?id='.$article['id'];
-                break;
-              case 'video':
-              echo 'article_'.$article['sport'].'.php?id='.$article['id'];
-              break;
-              case 'marque':
-              echo 'article_marque.php?marque='.$article['id'];
-              break;
-              case 'pro':
-              echo 'article_pro.php?pro='.$article['id'];
-              break;
-              default:
-                // code...
-                break;
-            } ?>">
-              <article class="article__block">
-                <img src="img/<?php echo $article['media']; ?>.png" alt="" class="article__preshow__img">
-                <div class="block__info">
-                  <h3 class="article__preshow__title"><?php echo $article['titre']; ?></h3>
-
-                  <!-- LIMITE A 100 MOT un truc du genre -->
-                  <p class="article__preshow__description"><?php echo $article['contenu']; ?></p>
-                </div>
-
-            </article>
-          </a>
-
-          <?php
-
-        } ?>
-        </section>
       </div>
 
 
@@ -153,11 +115,8 @@ include('morceau/bdd.php');
           <article class="article__aside">
             <a href="<?php switch ($article['type']) {
               case 'article':
-                echo 'article_'.$article['sport'].'.php?id='.$article['id'];
+                echo '/urbanride/article-'.$article['sport'].'/'.$article['url']."-".$article['id'];
                 break;
-              case 'video':
-              echo 'article_'.$article['sport'].'.php?id='.$article['id'];
-              break;
               case 'marque':
               echo 'article_marque.php?marque='.$article['id'];
               break;
